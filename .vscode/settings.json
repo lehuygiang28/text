@@ -7,5 +7,6 @@
         "oóòỏõọôốồổỗộơớờởỡợ",
         "uúùủũụưứừửữự",
         "yýỳỷỹỵ"
-    ]
+    ],
+    "conventionalCommits.scopes": ["tone", "diacritics", "regex"]
 }
