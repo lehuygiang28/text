@@ -43,7 +43,7 @@ const vietnameseText = require('@vn-utils/text');
 
 ## Documentation:
 
-// TODO
+### See full documentation at [vn-text.vercel.app](https://vn-text.vercel.app/)
 
 ## Support
 
