@@ -106,6 +106,12 @@ const config: Config = {
             defaultMode: 'dark',
             respectPrefersColorScheme: true,
         },
+        algolia: {
+            appId: 'PZC50JC6JV',
+            apiKey: 'c3f76f897b83ca2d7924e608c02c2907',
+            indexName: 'vn-text',
+            contextualSearch: true,
+        },
     } satisfies Preset.ThemeConfig,
     plugins: [
         [
