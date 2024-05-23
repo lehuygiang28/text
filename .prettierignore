@@ -3,3 +3,7 @@ dist/
 lib/
 
 .DS_Store
+
+docs/.docusaurus/
+docs/build/
+docs/node_modules/
