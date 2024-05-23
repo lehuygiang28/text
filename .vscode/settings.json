@@ -8,5 +8,5 @@
         "uúùủũụưứừửữự",
         "yýỳỷỹỵ"
     ],
-    "conventionalCommits.scopes": ["tone", "diacritics", "regex"]
+    "conventionalCommits.scopes": ["tone", "diacritics", "regex", "readme"]
 }
