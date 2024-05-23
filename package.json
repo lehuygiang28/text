@@ -1,0 +1,51 @@
+{
+    "name": "@vn-utils/text",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lehuygiang28/text.git"
+    },
+    "version": "0.0.1-rc.1",
+    "description": "Utilities for work with Vietnamese text",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "lib"
+    ],
+    "scripts": {
+        "build": "rimraf ./lib && tsc",
+        "prepare": "npm run build",
+        "test": "jest",
+        "release": "npm version patch && git push --follow-tags",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "prettier": "prettier --check .",
+        "prettier:fix": "prettier --write ."
+    },
+    "keywords": [
+        "tone mark",
+        "vietnamese",
+        "search vietnamese",
+        "tone mark vietnamese",
+        "vietnamese text search"
+    ],
+    "author": "lehuygiang28 <lehuygiang28@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/diacritics": "^1.3.3",
+        "@types/jest": "^29.5.12",
+        "@types/node": "^20.12.12",
+        "@typescript-eslint/eslint-plugin": "^7.10.0",
+        "@typescript-eslint/parser": "^7.10.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "prettier": "^3.2.5",
+        "rimraf": "^5.0.7",
+        "ts-jest": "^29.1.3",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "diacritics": "^1.3.0"
+    }
+}
