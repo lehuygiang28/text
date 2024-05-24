@@ -14,7 +14,7 @@
 <a href="https://www.npmjs.com/package/@vn-utils/text" target="_blank"><img src="https://img.shields.io/npm/l/@vn-utils/text" alt="Package License"><a>
 <a href="https://www.npmjs.com/package/@vn-utils/text" target="_blank"><img src="https://img.shields.io/npm/dm/@vn-utils/text" alt="NPM Downloads"></a>
 <a href="https://github.com/lehuygiang28/text/actions/workflows/test-cov.yml" target="_blank"><img src="https://github.com/lehuygiang28/text/actions/workflows/test-cov.yml/badge.svg" alt="Cov badge"></a>
-<a href='https://coveralls.io/github/lehuygiang28/text?branch=fix_build_test'><img src='https://coveralls.io/repos/github/lehuygiang28/text/badge.svg?branch=fix_build_test' alt='Coverage Status' /></a>
+<a href='https://coveralls.io/github/lehuygiang28/text?branch=main'><img src='https://coveralls.io/repos/github/lehuygiang28/text/badge.svg?branch=main' alt='Coverage Status' /></a>
 </p>
 
 <strong>Nodejs library for working with Vietnamese text</strong>
