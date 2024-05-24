@@ -1,0 +1,19 @@
+on: ['push', 'pull_request']
+
+name: Test Coveralls
+
+jobs:
+    coveralls:
+        name: Coveralls
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+
+            - name: npm install
+              run: |
+                  npm install
+                  npm run test:coveralls
+
+            - name: Coveralls
+              uses: coverallsapp/github-action@v2
