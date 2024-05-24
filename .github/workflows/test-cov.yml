@@ -8,6 +8,12 @@ on:
 jobs:
     coverage:
         runs-on: ubuntu-latest
+        permissions:
+            # Required to checkout the code
+            contents: write
+            checks: write
+            # Required to put a comment into the pull-request
+            pull-requests: write
 
         steps:
             - name: Checkout code
@@ -15,4 +21,4 @@ jobs:
 
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
-                  github-token: ${{ secrets.F_COV_TOKEN  }}
+                  github-token: ${{ secrets.GITHUB_TOKEN  }}
