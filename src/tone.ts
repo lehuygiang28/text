@@ -29,7 +29,7 @@ import {
  */
 export function removeTone(text: string): string {
     if (!text || text === undefined || text === null || typeof text !== 'string') {
-        throw new Error('test is invalid');
+        throw new Error('text is invalid');
     }
 
     return [...text.normalize()]
