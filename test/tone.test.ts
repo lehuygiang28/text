@@ -1,7 +1,7 @@
 import { removeTone, hasTone } from '../src/tone';
 
 describe('removeTone', () => {
-    [null, undefined, 123, NaN].forEach((input) =>
+    [null, undefined, 123, NaN, true, false, ''].forEach((input) =>
         it('should throw an error if the input is not a string', () => {
             expect(() => removeTone(input as any)).toThrow('text is invalid');
         }),
@@ -42,7 +42,7 @@ describe('removeTone', () => {
 });
 
 describe('hasTone', () => {
-    [null, undefined, 123, NaN].forEach((input) =>
+    [null, undefined, 123, NaN, true, false, ''].forEach((input) =>
         it('should throw an error if the input is not a string', () => {
             expect(() => hasTone(input as any)).toThrow('text is invalid');
         }),

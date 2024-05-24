@@ -1,12 +1,9 @@
 import { removeDiacritics, hasDiacritics } from '../src/diacritics';
 
 describe('removeDiacritics', () => {
-    it('should throw an error if the input is not a string', () => {
-        // Arrange
-        const invalidInputs = [null, undefined, 123];
-
-        // Act & Assert
-        invalidInputs.forEach((input) => {
+    [null, undefined, 123, NaN, true, false, ''].forEach((input) => {
+        it('should throw an error if the input is not a string', () => {
+            // Act & Assert
             expect(() => removeDiacritics(input as any)).toThrow('text is invalid');
         });
     });
@@ -121,6 +118,13 @@ describe('removeDiacritics', () => {
 });
 
 describe('hasDiacritics', () => {
+    [null, undefined, 123, NaN, true, false, ''].forEach((input) => {
+        it('should throw an error if the input is not a string', () => {
+            // Act & Assert
+            expect(() => hasDiacritics(input as any)).toThrow('text is invalid');
+        });
+    });
+
     it('should return true if the text has diacritics', () => {
         // Arrange
         const text = 'sắc huyền ngã hỏi nặng';
@@ -141,15 +145,5 @@ describe('hasDiacritics', () => {
 
         // Assert
         expect(result).toBe(false);
-    });
-
-    it('should throw an error if the input is not a string', () => {
-        // Arrange
-        const invalidInputs = [null, undefined, 123];
-
-        // Act & Assert
-        invalidInputs.forEach((input) => {
-            expect(() => hasDiacritics(input as any)).toThrow('text is invalid');
-        });
     });
 });

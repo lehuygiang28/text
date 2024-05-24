@@ -1,7 +1,7 @@
 import { createRegex, CreateRegexOptions } from '../src';
 
 describe('createRegex', () => {
-    [123, '', null, undefined, NaN].forEach((keyword) =>
+    [null, undefined, 123, NaN, true, false, ''].forEach((keyword) =>
         it(`should throw an error if the keyword parameter is not a string: '${String(keyword)}'`, () => {
             expect(() => createRegex(keyword as any)).toThrow('keyword is invalid');
         }),
@@ -48,9 +48,9 @@ describe('createRegex', () => {
 
     [
         { input: 'Hà Nội', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
-        // { input: 'hà nội', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
-        // { input: 'HÀ NỘI', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
-        // { input: 'HA NOI', expected: '[h][aáàảãạăắằẳẵặâấầẩẫậ][ ][n][oóòỏõọôốồổỗộơớờởỡợ][iíìỉĩị]' },
+        { input: 'hà nội', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
+        { input: 'HÀ NỘI', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
+        { input: 'HA NOI', expected: '[h][aáàảãạăắằẳẵặâấầẩẫậ][ ][n][oóòỏõọôốồổỗộơớờởỡợ][iíìỉĩị]' },
     ].forEach(({ input, expected }) => {
         it(`should generate a regex with output case is lower: ${input} - ${expected}`, () => {
             const options: CreateRegexOptions = {
