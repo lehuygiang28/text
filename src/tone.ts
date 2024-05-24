@@ -28,7 +28,7 @@ import {
  * @throws {Error} Throws an error if the input text is not a string.
  */
 export function removeTone(text: string): string {
-    if (text === undefined || text === null || typeof text !== 'string') {
+    if (!text || text === undefined || text === null || typeof text !== 'string') {
         throw new Error('test is invalid');
     }
 
@@ -53,8 +53,8 @@ export function removeTone(text: string): string {
  * @see `removeTone` to know what tone marks are.
  */
 export function hasTone(text: string): boolean {
-    if (text === undefined || text === null || typeof text !== 'string') {
-        throw new Error('test is invalid');
+    if (!text || text === undefined || text === null || typeof text !== 'string') {
+        throw new Error('text is invalid');
     }
 
     return [...text.normalize()].some(

@@ -41,12 +41,8 @@ import {
 
 export function createRegex(keyword: string, options?: CreateRegexOptions): RegExp {
     // Check that the keyword parameter is defined.
-    if (keyword === undefined || keyword === null) {
-        throw new Error('Keyword parameter is required');
-    }
-
-    if (typeof keyword !== 'string') {
-        throw new Error('Keyword parameter must be a string');
+    if (!keyword || keyword === undefined || keyword === null || typeof keyword !== 'string') {
+        throw new Error('keyword is invalid');
     }
 
     const { outputCase = 'same', sensitive = false } = options || {};

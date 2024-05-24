@@ -23,7 +23,7 @@ import {
  * @throws {Error} Throws an error if the input text is not a string.
  */
 export function removeDiacritics(text: string): string {
-    if (text === undefined || text === null || typeof text !== 'string') {
+    if (!text || text === undefined || text === null || typeof text !== 'string') {
         throw new Error('text is invalid');
     }
 
@@ -48,7 +48,7 @@ export function removeDiacritics(text: string): string {
  * @see `removeDiacritics` to know what diacritical marks are.
  */
 export function hasDiacritics(text: string): boolean {
-    if (text === undefined || text === null || typeof text !== 'string') {
+    if (!text || text === undefined || text === null || typeof text !== 'string') {
         throw new Error('text is invalid');
     }
 
