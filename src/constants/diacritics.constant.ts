@@ -10,6 +10,8 @@ const _DIACRITICS_MARK_WITH_CHAR_MAP: Record<string, string> = {
     ặ: 'ạ',
     ậ: 'ạ',
 
+    đ: 'd',
+
     ố: 'ó',
     ớ: 'ó',
     ồ: 'ò',
