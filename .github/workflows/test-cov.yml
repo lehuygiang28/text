@@ -1,4 +1,4 @@
-name: Test and Coverage
+name: Test
 on:
     pull_request_target:
         branches: ['*']
@@ -6,7 +6,7 @@ on:
         branches: ['*']
 
 jobs:
-    coverage:
+    test:
         runs-on: ubuntu-latest
         permissions:
             # Required to checkout the code
