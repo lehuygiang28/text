@@ -41,34 +41,35 @@ import {
 
 export function createRegex(keyword: string, options?: CreateRegexOptions): RegExp {
     // Check that the keyword parameter is defined.
-    if (keyword === undefined || keyword === null) {
-        throw new Error('Keyword parameter is required');
-    }
-
-    if (typeof keyword !== 'string') {
-        throw new Error('Keyword parameter must be a string');
+    if (!keyword || keyword === undefined || keyword === null || typeof keyword !== 'string') {
+        throw new Error('keyword is invalid');
     }
 
     const { outputCase = 'same', sensitive = false } = options || {};
 
     // Generate the regex string.
-    const regexString = Array.from(keyword, (char: string) => {
+    const regexString = Array.from(keyword.normalize(), (char: string) => {
         let variationsSet = SAME_CASE_MAP.get(char) || char;
 
-        switch (outputCase) {
-            case 'lowerAndUpper':
-                variationsSet = BOTH_LOWER_UPPER_CASE_MAP.get(char) || char;
-                break;
-            case 'lower':
-                variationsSet = LOWER_CASE_MAP.get(char) || char.toLowerCase();
-                break;
-            case 'upper':
-                variationsSet = UPPER_CASE_MAP.get(char) || char.toUpperCase();
-                break;
-            case 'same':
-            default:
-                variationsSet = SAME_CASE_MAP.get(char) || char;
-                break;
+        // no matter one or more space/whitespace characters
+        if (!/\s/.test(char)) {
+            switch (outputCase) {
+                case 'lowerAndUpper':
+                    variationsSet =
+                        BOTH_LOWER_UPPER_CASE_MAP.get(char) ||
+                        char.toLowerCase() + char.toUpperCase();
+                    break;
+                case 'lower':
+                    variationsSet = LOWER_CASE_MAP.get(char) || char.toLowerCase();
+                    break;
+                case 'upper':
+                    variationsSet = UPPER_CASE_MAP.get(char) || char.toUpperCase();
+                    break;
+                case 'same':
+                default:
+                    variationsSet = SAME_CASE_MAP.get(char) || char;
+                    break;
+            }
         }
 
         return `[${variationsSet}]`;

@@ -9,3 +9,4 @@ sidebar_position: 0
 1. Dấu mũ (ˆ): vd: â, ê, ô
 2. Dấu trăng (˘): vd: ă
 3. Dấu móc (̛): vd: ơ, ư
+4. Dấu gạch ngang của chữ (đ)
