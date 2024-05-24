@@ -31,44 +31,67 @@ describe('createRegex', () => {
         expect(createRegex(keyword, options)).toEqual(expectedRegex);
     });
 
-    // it('should generate a regular expression that have sensitive case', () => {
-    //     const keyword = 'Hà Nội';
-    //     const options: CreateRegexOptions = {
-    //         sensitive: false,
-    //     };
-    //     const expectedRegex = new RegExp(`[H][aáàảãạăắằẳẵặâấầẩẫậ][ ][N][oóòỏõọôốồổỗộơớờởỡợ][iíìỉĩị]`, 'i');
-    //     expect(createRegex(keyword, options)).toEqual(expectedRegex);
-    // });
+    [
+        { input: 'Hà Nội', expected: '[H][à][ ][N][ộ][iíìỉĩị]' },
+        { input: 'hà nội', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
+        { input: 'HÀ NỘI', expected: '[H][À][ ][N][Ộ][IÍÌỈĨỊ]' },
+        { input: 'ha noi', expected: '[h][aáàảãạăắằẳẵặâấầẩẫậ][ ][n][oóòỏõọôốồổỗộơớờởỡợ][iíìỉĩị]' },
+        { input: 'HA NOI', expected: '[H][AÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬ][ ][N][OÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢ][IÍÌỈĨỊ]' },
+    ].forEach(({ input, expected }) => {
+        it(`should generate a regex with output case is same: ${input} - ${expected}`, () => {
+            const options: CreateRegexOptions = {
+                sensitive: true,
+            };
+            expect(createRegex(input, options)).toEqual(new RegExp(expected));
+        });
+    });
 
-    // it('should generate a regular expression that not ignore accented', () => {
-    //     const keyword = 'Hà Nội';
-    //     const options: CreateRegexOptions = {
-    //         sensitive: false,
-    //     };
-    //     const expectedRegex = new RegExp(`[H][à][ ][N][ộ][iíìỉĩị]`, 'i');
-    //     expect(createRegex(keyword, options)).toEqual(expectedRegex);
-    // });
+    [
+        { input: 'Hà Nội', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
+        // { input: 'hà nội', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
+        // { input: 'HÀ NỘI', expected: '[h][à][ ][n][ộ][iíìỉĩị]' },
+        // { input: 'HA NOI', expected: '[h][aáàảãạăắằẳẵặâấầẩẫậ][ ][n][oóòỏõọôốồổỗộơớờởỡợ][iíìỉĩị]' },
+    ].forEach(({ input, expected }) => {
+        it(`should generate a regex with output case is lower: ${input} - ${expected}`, () => {
+            const options: CreateRegexOptions = {
+                sensitive: true,
+                outputCase: 'lower',
+            };
+            expect(createRegex(input, options)).toEqual(new RegExp(expected));
+        });
+    });
 
-    // it('should throw an error if the keyword parameter is undefined', () => {
-    //     const keyword = undefined;
-    //     expect(() => createRegex(keyword as any)).toThrow('Keyword parameter is required');
-    // });
+    [
+        { input: 'Hà Nội', expected: '[H][À][ ][N][Ộ][IÍÌỈĨỊ]' },
+        { input: 'hà nội', expected: '[H][À][ ][N][Ộ][IÍÌỈĨỊ]' },
+        { input: 'HÀ NỘI', expected: '[H][À][ ][N][Ộ][IÍÌỈĨỊ]' },
+        { input: 'HA NOI', expected: '[H][AÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬ][ ][N][OÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢ][IÍÌỈĨỊ]' },
+    ].forEach(({ input, expected }) => {
+        it(`should generate a regex with output case is UPPER: ${input} - ${expected}`, () => {
+            const options: CreateRegexOptions = {
+                sensitive: true,
+                outputCase: 'upper',
+            };
+            expect(createRegex(input, options)).toEqual(new RegExp(expected));
+        });
+    });
 
-    // it('should generate a regex with all is lowercase', () => {
-    //     const keyword = 'Hà Nội';
-    //     const options: CreateRegexOptions = {
-    //         outputCase: 'lower',
-    //     };
-    //     const expectedRegex = new RegExp(`[h][à][ ][n][ộ][iíìỉĩị]`, 'i');
-    //     expect(createRegex(keyword, options)).toEqual(expectedRegex);
-    // });
-
-    // it('should generate a regex with same case', () => {
-    //     const keyword = 'hà NộI';
-    //     const options: CreateRegexOptions = {
-    //         outputCase: 'same',
-    //     };
-    //     const expectedRegex = new RegExp(`[h][à][ ][N][ộ][${UPPER_CASE_MAP.get('i')}]`, 'i');
-    //     expect(createRegex(keyword, options)).toEqual(expectedRegex);
-    // });
+    [
+        { input: 'Hà Nội', expected: '[hH][àÀ][ ][nN][ộỘ][iíìỉĩịIÍÌỈĨỊ]' },
+        { input: 'hà nội', expected: '[hH][àÀ][ ][nN][ộỘ][iíìỉĩịIÍÌỈĨỊ]' },
+        { input: 'HÀ NỘI', expected: '[hH][àÀ][ ][nN][ộỘ][iíìỉĩịIÍÌỈĨỊ]' },
+        {
+            input: 'HA NOI',
+            expected:
+                '[hH][aáàảãạăắằẳẵặâấầẩẫậAÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬ][ ][nN][oóòỏõọôốồổỗộơớờởỡợOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢ][iíìỉĩịIÍÌỈĨỊ]',
+        },
+    ].forEach(({ input, expected }) => {
+        it(`should generate a regex with output case is both lower and UPPER: ${input} - ${expected}`, () => {
+            const options: CreateRegexOptions = {
+                sensitive: true,
+                outputCase: 'lowerAndUpper',
+            };
+            expect(createRegex(input, options)).toEqual(new RegExp(expected));
+        });
+    });
 });
