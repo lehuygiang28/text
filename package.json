@@ -4,7 +4,7 @@
         "type": "git",
         "url": "git+https://github.com/lehuygiang28/text.git"
     },
-    "version": "0.0.1-rc.1",
+    "version": "0.0.1-rc.2",
     "description": "Utilities for work with Vietnamese text",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -12,9 +12,9 @@
         "lib"
     ],
     "scripts": {
-        "build": "rimraf ./lib && tsc & webpack",
-        "lib": "rimraf ./lib && tsc",
-        "bundle": "rimraf ./lib && webpack",
+        "build": "rimraf ./lib && webpack && tsc && rimraf ./lib/export.bundle.d.ts",
+        "lib": "rimraf ./lib && tsc && rimraf ./lib/export.bundle.d.ts",
+        "bundle": "rimraf ./lib && webpack && rimraf ./lib/**/*.d.ts --glob",
         "prepare": "npm run build",
         "test": "jest",
         "test:cov": "jest --coverage",
@@ -25,11 +25,13 @@
         "prettier:fix": "prettier --write ."
     },
     "keywords": [
+        "vietnamese text",
+        "vietnamese text search",
         "tone mark",
         "vietnamese",
         "search vietnamese",
         "tone mark vietnamese",
-        "vietnamese text search"
+        "diacritics vietnamese"
     ],
     "author": "lehuygiang28 <lehuygiang28@gmail.com>",
     "license": "MIT",

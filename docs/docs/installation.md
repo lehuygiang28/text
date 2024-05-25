@@ -21,17 +21,48 @@ $ yarn add @vn-utils/text
 ### PNPM
 
 ```bash
-$ pnpm add @vn-utils/text
+$ pnpm install @vn-utils/text
+```
+
+### Browser
+
+```html
+<!-- Latest -->
+<script src="https://unpkg.com/@vn-utils/text/lib/bundle.js"></script>
+
+<!-- Or with selected version -->
+<script src="https://unpkg.com/@vn-utils/text@<VERSION_HERE>/lib/bundle.js"></script>
 ```
 
 ## Sử dụng thư viện
 
 ### Import thư viện
 
+#### Node
+
 ```typescript
 // ES Module
-import * as vietnameseText from '@vn-utils/text';
+import * as vnUtilsText from '@vn-utils/text';
 
 // CommonJS
-const vietnameseText = require('@vn-utils/text');
+const vnUtilsText = require('@vn-utils/text');
+```
+
+#### Browser
+
+-   Sử dụng biến `vnUtilsText` để sử dụng thư viện
+
+```html
+<script>
+    vnUtilsText.hasTone('các dấu sắc huyền ngã hỏi nặng có tồn tại');
+</script>
+```
+
+-   Hoặc gán bằng biến mới:
+
+```html
+<script>
+    const customVariable = vnUtilsText;
+    customVariable.hasTone('các dấu sắc huyền ngã hỏi nặng có tồn tại');
+</script>
 ```
