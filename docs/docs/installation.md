@@ -28,10 +28,10 @@ $ pnpm install @vn-utils/text
 
 ```html
 <!-- Latest -->
-<script src="https://unpkg.com/@vn-utils/text/lib/bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/text@latest/lib/bundle.js"></script>
 
 <!-- Or with selected version -->
-<script src="https://unpkg.com/@vn-utils/text@<VERSION_HERE>/lib/bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/text@<VERSION>/lib/bundle.js"></script>
 ```
 
 ## Sử dụng thư viện
