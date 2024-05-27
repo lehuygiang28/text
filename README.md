@@ -19,6 +19,10 @@
 
 <strong>Thư viện Nodejs hỗ trợ làm việc với tiếng Việt</strong>
 
+## Tài liệu:
+
+### Xem tài liệu đầy đủ tại [vn-text.vercel.app](https://vn-text.vercel.app/)
+
 ## Cài đặt:
 
 Cài đặt `@vn-utils/text` với `npm`:
@@ -41,6 +45,8 @@ pnpm add @vn-utils/text
 
 ## Sử dụng:
 
+### Node
+
 ```typescript
 // ES Modules
 import * as vietnameseText from '@vn-utils/text';
@@ -49,9 +55,19 @@ import * as vietnameseText from '@vn-utils/text';
 const vietnameseText = require('@vn-utils/text');
 ```
 
-## Tài liệu:
+### Browser
 
-### Xem tài liệu đầy đủ tại [vn-text.vercel.app](https://vn-text.vercel.app/)
+#### Mới nhất
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/text@latest/lib/bundle.js"></script>
+```
+
+#### Phiên bản cụ thể
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/text@<VERSION>/lib/bundle.js"></script>
+```
 
 ## Hỗ trợ
 

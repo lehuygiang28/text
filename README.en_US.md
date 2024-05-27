@@ -19,6 +19,10 @@
 
 <strong>Nodejs library for working with Vietnamese text</strong>
 
+## Documentation:
+
+### See full documentation at [vn-text.vercel.app](https://vn-text.vercel.app/)
+
 ## Installation:
 
 Install `@vn-utils/text` with `npm`:
@@ -41,6 +45,8 @@ pnpm add @vn-utils/text
 
 ## Usage:
 
+### Node
+
 ```typescript
 // ES Modules
 import * as vietnameseText from '@vn-utils/text';
@@ -49,9 +55,19 @@ import * as vietnameseText from '@vn-utils/text';
 const vietnameseText = require('@vn-utils/text');
 ```
 
-## Documentation:
+### Browser
 
-### See full documentation at [vn-text.vercel.app](https://vn-text.vercel.app/)
+#### Latest
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/text@latest/lib/bundle.js"></script>
+```
+
+#### Selected version
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/text@<VERSION>/lib/bundle.js"></script>
+```
 
 ## Support
 
